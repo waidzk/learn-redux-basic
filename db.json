@@ -1,14 +1,24 @@
 {
-    "contacts" : [
-        {
-            "id" : 1,
-            "name" : "Icha",
-            "number" : "0947832234"
-        },
-        {
-            "id" : 2,
-            "name" : "Dinda",
-            "number" : "0923552694"
-        }
-    ]
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Icha",
+      "number": "0947832234"
+    },
+    {
+      "id": 2,
+      "name": "Dinda",
+      "number": "0923552694"
+    },
+    {
+      "name": "Ari",
+      "number": "934819023",
+      "id": 3
+    },
+    {
+      "name": "Adhit",
+      "number": "038482348",
+      "id": 4
+    }
+  ]
 }

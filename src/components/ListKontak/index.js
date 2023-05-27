@@ -8,7 +8,6 @@ function ListKontak() {
   const dispatch = useDispatch();
   useEffect(() => {
     // Panggil action getListKontak
-    console.log("1. Use Effect Component Did Mount");
     dispatch(getListKontak());
   }, [dispatch]);
 
