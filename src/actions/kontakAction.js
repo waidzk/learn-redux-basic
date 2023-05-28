@@ -3,6 +3,8 @@ import axios from "axios";
 export const GET_LIST_KONTAK = "GET_LIST_KONTAK";
 export const ADD_KONTAK = "ADD_KONTAK";
 export const DELETE_KONTAK = "DELETE_KONTAK";
+export const DETAIL_KONTAK = "DETAIL_KONTAK";
+export const UPDATE_KONTAK = "UPDATE_KONTAK";
 
 export const getListKontak = () => {
   console.log("2. Masuk ke kontak action");
@@ -128,6 +130,61 @@ export const deleteKontak = (id) => {
         console.log("3. gagal delete data! : ", error);
         dispatch({
           type: DELETE_KONTAK,
+          payload: {
+            loading: false,
+            data: false,
+            errorMessage: error.message,
+          },
+        });
+      });
+  };
+};
+
+export const detailKontak = (data) => {
+  return (dispatch) => {
+    dispatch({
+      type: DETAIL_KONTAK,
+      payload: {
+        data: data,
+      },
+    });
+  };
+};
+
+export const updateKontak = (data) => {
+  return (dispatch) => {
+    //loading
+    dispatch({
+      type: UPDATE_KONTAK,
+      payload: {
+        loading: true,
+        data: false,
+        errorMessage: false,
+      },
+    });
+
+    //ADD Data
+    axios({
+      method: "PUT",
+      url: `http://localhost:3001/contacts/${data.id}`,
+      timeout: 12000,
+      data: data,
+    })
+      .then((response) => {
+        // BERHASIL ADD Data
+        dispatch({
+          type: UPDATE_KONTAK,
+          payload: {
+            loading: false,
+            data: response.data,
+            errorMessage: false,
+          },
+        });
+      })
+      .catch((error) => {
+        //Gagal add Data
+        dispatch({
+          type: UPDATE_KONTAK,
           payload: {
             loading: false,
             data: false,

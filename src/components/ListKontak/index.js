@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteKontak, getListKontak } from "../../actions/kontakAction";
+import {
+  deleteKontak,
+  detailKontak,
+  getListKontak,
+} from "../../actions/kontakAction";
 
 function ListKontak() {
   const {
@@ -33,9 +37,9 @@ function ListKontak() {
             <button onClick={() => dispatch(deleteKontak(contact.id))}>
               Hapus
             </button>
-            {/* <button onClick={() => dispatch(detailKontak(contact))}>
+            <button onClick={() => dispatch(detailKontak(contact))}>
               Edit
-            </button> */}
+            </button>
           </p>
         ))
       ) : getListKontakLoading ? (
